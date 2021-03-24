@@ -28,6 +28,20 @@ def header():
 def new_line():
     return "\n"
 
+def lists(type_list):
+    temp_str = ""
+    while True:
+        num_row = int(input("Number of rows: "))
+        if num_row > 0:
+            break
+        print("The number of rows should be greater than zero")
+    for i in range(1, num_row + 1):
+        temp_str += f"{str(i) + '. ' if type_list == 'ordered-list' else '* '}"\
+                    + input(f"Row #{i}: ") + "\n"
+    return temp_str
+
+
+
 text_ = ""
 while True:
     command = input("- Choose a formatter: ")
@@ -53,4 +67,6 @@ while True:
         text_ += link()
     elif command == "new-line":
         text_ += new_line()
+    elif command == "ordered-list" or command == "unordered-list":
+        text_ += lists(command)
     print(text_)
