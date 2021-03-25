@@ -46,6 +46,8 @@ text_ = ""
 while True:
     command = input("- Choose a formatter: ")
     if command == "!done":
+        with open("output.md", 'w') as file_:
+            file_.write(text_)
         break
     elif command == "!help":
         print("Available formatters: " + " ".join(command_list))
